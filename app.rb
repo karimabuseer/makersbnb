@@ -14,7 +14,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/sign_up' do
-    erb :sign_up
+    erb :"users/sign_up"
   end
 
   post '/user' do
@@ -22,5 +22,14 @@ class MakersBnB < Sinatra::Base
     redirect '/'
   end
 
+  get '/log_in' do
+    erb :"users/log_in"
+  end
+
+  post '/log_in' do
+    session[:name] = params[:email]
+    redirect '/'
+  end
+  
   run! if app_file == $0
 end

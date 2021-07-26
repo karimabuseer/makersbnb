@@ -21,6 +21,7 @@ class MakersBnB < Sinatra::Base
 
   post '/user' do
     session[:name] = params[:name]
+    flash[:notice] = "Welcome #{session[:name]}!"
     redirect '/'
   end
 
@@ -30,6 +31,7 @@ class MakersBnB < Sinatra::Base
 
   post '/log_in' do
     session[:name] = params[:email]
+    flash[:notice] = "Welcome #{session[:name]}!"
     redirect '/'
   end
 

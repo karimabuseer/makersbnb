@@ -1,9 +1,11 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require 'sinatra/flash'
 
 class MakersBnB < Sinatra::Base
 
   enable :sessions
+  register Sinatra::Flash
   
   configure :development do
     register Sinatra::Reloader
@@ -28,6 +30,12 @@ class MakersBnB < Sinatra::Base
 
   post '/log_in' do
     session[:name] = params[:email]
+    redirect '/'
+  end
+
+  post '/log_out' do
+    session.clear
+    flash[:notice] = 'You have logged out.'
     redirect '/'
   end
   

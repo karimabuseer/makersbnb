@@ -1,9 +1,10 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require 'sinatra/flash'
+require 'pg'
 require 'bcrypt'
 require './lib/user'
-
+require_relative './lib/listing'
 class MakersBnB < Sinatra::Base
 
   enable :sessions
@@ -15,6 +16,19 @@ class MakersBnB < Sinatra::Base
 
   get '/' do
     erb :index
+  end
+
+  get '/makersbnb/listings' do
+    'Welcome to MakersBnB'
+    erb(:'/listings/index')
+  end
+
+  get '/makersbnb/listings/add' do
+    erb(:'/listings/add')
+  end
+
+  post '/makersbnb/listings' do
+    redirect '/makersbnb/listings'
   end
 
   get '/sign_up' do

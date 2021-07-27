@@ -8,6 +8,12 @@ require File.join(File.dirname(__FILE__), '..', 'app.rb')
 Capybara.app = MakersBnB
 
 RSpec.configure do |config|
+  
+  config.before(:each) do
+    con = PG.connect :dbname => 'makersbnb_test'
+    con.exec("TRUNCATE TABLE users;")
+    con.exec("TRUNCATE TABLE listings;")
+  end
 
   config.expect_with :rspec do |expectations|
 

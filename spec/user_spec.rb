@@ -21,4 +21,15 @@ describe User do
       User.create(name: 'Test', email: 'test@example.co.uk', password: 'password123')
     end
   end
+
+  describe '.find' do
+    it 'finds a user by email' do
+      user = User.create(name: 'Test', email: 'test@example.co.uk', password: 'password')
+      result = User.find(email: 'test@example.co.uk')
+
+      expect(result).to be_a(User)
+      expect(result.user_id).to eq(user.user_id)
+      expect(result.name).to eq(user.name)
+    end
+  end
 end

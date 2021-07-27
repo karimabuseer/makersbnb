@@ -19,4 +19,8 @@ class User
     User.new(user_id: result[0]['user_id'], name: result[0]['name'], email: result[0]['email'])
   end
 
+  def self.find(email:)
+    result = database_connection.exec("SELECT * FROM users WHERE email = '#{email}';")
+    User.new(user_id: result[0]['user_id'], name: result[0]['name'], email: result[0]['email'])
+  end
 end

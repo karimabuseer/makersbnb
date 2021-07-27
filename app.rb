@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require 'sinatra/flash'
 require 'bcrypt'
+require './lib/user'
 
 class MakersBnB < Sinatra::Base
 
@@ -21,9 +22,8 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/user' do
-    user = User.create(name: params[:name], email: params[:email], password: params[:password])
-    session[:name] = user.name
-    flash[:notice] = "Welcome #{session[:name]}!"
+    session[:user] = User.create(name: params[:name], email: params[:email], password: params[:password])
+    flash[:notice] = "Welcome #{session[:user].name}!"
     redirect '/'
   end
 
@@ -32,8 +32,8 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/log_in' do
-    session[:name] = params[:email]
-    flash[:notice] = "Welcome #{session[:name]}!"
+    session[:user] = User.find(email: params[:email])
+    flash[:notice] = "Welcome #{session[:user].name}!"
     redirect '/'
   end
 

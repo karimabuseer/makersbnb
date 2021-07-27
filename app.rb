@@ -8,10 +8,6 @@ class MakersBnB < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  get '/' do
-    'Welcome to MakersBnB'
-  end
-
   get '/makersbnb/listings' do
     'Welcome to MakersBnB'
     erb(:'/listings/index')

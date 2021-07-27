@@ -40,5 +40,4 @@ class Listing
 
   end
 
-
 end

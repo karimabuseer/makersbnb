@@ -1,6 +1,8 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require 'pg'
+require_relative './connection.rb'
+require_relative './lib/listing'
 
 class MakersBnB < Sinatra::Base
   configure :development do

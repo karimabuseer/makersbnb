@@ -2,6 +2,7 @@ require 'capybara'
 require 'rspec'
 require 'capybara/rspec'
 require 'features/web_helpers'
+require 'pg'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
@@ -11,8 +12,7 @@ RSpec.configure do |config|
   
   config.before(:each) do
     con = PG.connect :dbname => 'makersbnb_test'
-    con.exec("TRUNCATE TABLE users;")
-    con.exec("TRUNCATE TABLE listings;")
+    con.exec("TRUNCATE TABLE listings, users;")
   end
 
   config.expect_with :rspec do |expectations|

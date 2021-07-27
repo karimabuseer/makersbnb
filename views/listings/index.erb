@@ -1,3 +1,14 @@
-<form action="/makersbnb/listings/add" method='get'>
+<h1>Welcome to MakersBnB</h1>
+
+  <% @listings.each do |listing| %>
+    <li>
+        <%= listing.name %>
+        <%= listing.description %>
+        <%= listing.price %>
+    </li>
+  <% end %>
+
+
+<form action="/listings/add" method='get'>
   <input type="submit" value="Add listing">
 </form>

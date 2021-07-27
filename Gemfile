@@ -13,3 +13,4 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'pg'
 gem 'rom'
+gem "sinatra-flash", "~> 0.3.0"

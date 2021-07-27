@@ -49,5 +49,4 @@ describe Listing do
     end
   end
 
-  
 end

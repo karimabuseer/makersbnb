@@ -39,5 +39,4 @@ class Listing
     Listing.new(listing_id: result[0]['listing_id'], name: result[0]['name'], description: result[0]['description'], price: result[0]['price'])
 
   end
-
 end

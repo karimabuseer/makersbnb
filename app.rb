@@ -20,7 +20,8 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/user' do
-    session[:name] = params[:name]
+    user = User.create(name: params[:name], email: params[:email], password: params[:password])
+    session[:name] = user.name
     flash[:notice] = "Welcome #{session[:name]}!"
     redirect '/'
   end

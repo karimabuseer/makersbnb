@@ -14,3 +14,5 @@ gem 'sinatra-contrib'
 gem 'pg'
 gem 'rom'
 gem "sinatra-flash", "~> 0.3.0"
+
+gem "bcrypt", "~> 3.1"

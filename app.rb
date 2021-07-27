@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require 'sinatra/flash'
+require 'bcrypt'
 
 class MakersBnB < Sinatra::Base
 

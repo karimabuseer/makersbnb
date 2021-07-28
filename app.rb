@@ -32,6 +32,16 @@ class MakersBnB < Sinatra::Base
     redirect '/listings'
   end
 
+  get '/listings/:listing_id' do
+    @listing = Listing.find(listing_id: params[:listing_id])
+    erb(:'/listings/book')
+  end
+
+  post '/bookings/new/:listing_id' do
+    # Bookings.create(start: params[:start], end:params[:end], id: params[:id])
+    p params[:start_date], params[:end_date], params[:listing_id]
+  end
+
   get '/sign_up' do
     erb :"users/sign_up"
   end

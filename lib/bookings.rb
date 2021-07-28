@@ -22,8 +22,12 @@ class Booking
     bookings.map do |booking|
       Booking.new(
         booking_id: booking['booking_id'],
+        confirmed: booking['confirmed'],
         start_date: booking['start_date'],
-        end_date: booking['end_date'])
+        end_date: booking['end_date'],
+        listing_id: booking['listing_id'],
+        user_id: booking['user_id']
+        )
     
     end
   end
@@ -46,7 +50,7 @@ class Booking
     booking = database_connection.exec("SELECT * FROM bookings WHERE booking_id=#{booking_id}")
 
     Booking.new(
-      booking_id: booking_id, 
+      booking_id: booking[0]['booking_id'], 
       confirmed: booking[0]['confirmed'], 
       start_date: booking[0]['start_date'],
       end_date: booking[0]['end_date'],

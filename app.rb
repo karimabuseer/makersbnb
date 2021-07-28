@@ -60,24 +60,6 @@ class MakersBnB < Sinatra::Base
   end
   
   get '/bookings' do
-    listing = Listing.create( 
-      name: "sens hotel", 
-      description: "castle", 
-      price: "100")
-    
-    user = User.create(
-      name: 'sen',
-      email: 'banana@bread.com', 
-      password: 'banana')
-      
-      Booking.create(
-        start_date: '2021-10-10',
-        end_date: '2021-11-12',
-        user_id: user.user_id,
-        listing_id: listing.listing_id)
-    
-        
-      # Booking.create(start_date: '2021-10-10', end_date: '2021-11-12', listing_id: params[:listing_id], user_id: params[:user_id])
       @bookings = Booking.all
     erb :"/bookings/index"
   end

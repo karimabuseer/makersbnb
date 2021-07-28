@@ -14,7 +14,7 @@ RSpec.configure do |config|
   
   config.before(:each) do
     con = PG.connect :dbname => 'makersbnb_test'
-    con.exec("TRUNCATE TABLE listings, users;")
+    con.exec("TRUNCATE TABLE listings, users, bookings;")
   end
 
   config.expect_with :rspec do |expectations|

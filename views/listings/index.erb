@@ -3,10 +3,13 @@
  <ul>
   <% @listings.each do |listing| %>
    
-      <li>
+      <li class='listings'>
         <%= listing.name %>
         <%= listing.description %>
         <%= listing.price %>
+        <form action='listings/'<%=listing.listing_id%> method='get'>
+        <input type='submit' value='View'/>
+        </form>
       </li>
   <% end %>
 </ul>

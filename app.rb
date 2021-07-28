@@ -60,8 +60,8 @@ class MakersBnB < Sinatra::Base
   end
   
   get '/bookings' do
-    @bookings = Booking.all
-    erb(:'bookings/index')
+    Booking.create(start_date: params[:start_date], end_date: params[:end_date], listing_id: params[:listing_id], user_id: params[:user_id])
+    erb :"/bookings/index"
   end
 
   run! if app_file == $0

@@ -18,17 +18,18 @@ class MakersBnB < Sinatra::Base
     erb :index
   end
 
-  get '/makersbnb/listings' do
-    'Welcome to MakersBnB'
+  get '/listings' do
+    @listings = Listing.all
     erb(:'/listings/index')
   end
 
-  get '/makersbnb/listings/add' do
+  get '/listings/add' do
     erb(:'/listings/add')
   end
 
-  post '/makersbnb/listings' do
-    redirect '/makersbnb/listings'
+  post '/listings' do
+    Listing.create(name: params[:name], description: params[:description], price: params[:price])
+    redirect '/listings'
   end
 
   get '/sign_up' do
@@ -52,7 +53,7 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/log_out' do
-    session.clear
+    session.clear 
     flash[:notice] = 'You have logged out.'
     redirect '/'
   end

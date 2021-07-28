@@ -1,6 +1,6 @@
 require 'pg'
 require 'bcrypt'
-require_relative '../connection.rb'
+require_relative 'connection'
 
 class User 
 

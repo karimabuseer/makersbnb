@@ -1,5 +1,6 @@
 require 'pg'
 require 'bcrypt'
+require_relative './connection.rb'
 
 class Booking
 

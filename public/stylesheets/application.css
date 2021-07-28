@@ -1,0 +1,8 @@
+nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+title {
+  color: red;
+}

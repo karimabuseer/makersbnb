@@ -40,10 +40,10 @@ class Listing
 
   def self.find_by_listing_id(listing_id:)
   
-    listing = database_connection.exec("SELECT * FROM listings WHERE listing_id = '#{listing_id}';")
+    listing = database_connection.exec("SELECT * FROM listings WHERE listing_id = '#{listing_id}'")
     
     Listing.new(
-      listing_id: listing_id, 
+      listing_id: listing[0]['listing_id'], 
       name: listing[0]['name'], 
       description: listing[0]['description'], 
       price: listing[0]['price'])

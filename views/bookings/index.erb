@@ -1,6 +1,6 @@
 <ul>
   <% @bookings.each do |booking| %>
-    <%= Listing.find_by_listing(booking_id: booking.listing_id).name  %>
+    <%= Listing.find_by_listing_id(booking_id: booking.listing_id).name  %>
     <%= booking.confirmed || 'Not confirmed' %>
     <%= booking.start_date %>
     <%= booking.end_date %>

@@ -78,6 +78,7 @@ class MakersBnB < Sinatra::Base
     
         
       # Booking.create(start_date: '2021-10-10', end_date: '2021-11-12', listing_id: params[:listing_id], user_id: params[:user_id])
+      @bookings = Booking.all
     erb :"/bookings/index"
   end
 

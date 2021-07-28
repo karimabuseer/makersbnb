@@ -1,5 +1,5 @@
 require 'pg'
-require_relative '../connection.rb'
+require_relative './connection.rb'
 
 class Listing
 

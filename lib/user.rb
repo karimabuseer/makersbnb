@@ -14,7 +14,7 @@ class User
 
   def self.create(name:, email:, password:)
     encrypted_password = BCrypt::Password.create(password)
-    result = database_connection.exec("INSERT INTO users (name, email, password) VALUES ('#{name.gsub("'", "''")}', '#{email}', '#{encrypted_password.gsub("'", "''")}') RETURNING user_id, name, email, password;")
+    result = database_connection.exec("INSERT INTO users (name, email, password) VALUES ('#{name.gsub("'", "''")}', '#{email}', '#{encrypted_password}') RETURNING user_id, name, email, password;")
     User.new(user_id: result[0]['user_id'], name: result[0]['name'], email: result[0]['email'])
   end
 

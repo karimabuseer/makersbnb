@@ -2,9 +2,10 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 require 'sinatra/flash'
 require 'pg'
-require 'bcrypt'
-require './lib/user'
+# require 'bcrypt'
+# require './lib/user'
 require_relative './lib/listing'
+require_relative './lib/bookings'
 class MakersBnB < Sinatra::Base
 
   enable :sessions
@@ -58,5 +59,10 @@ class MakersBnB < Sinatra::Base
     redirect '/'
   end
   
+  get '/bookings' do
+    @bookings = Booking.all
+    erb(:'bookings/index')
+  end
+
   run! if app_file == $0
 end

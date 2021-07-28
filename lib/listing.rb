@@ -1,5 +1,5 @@
 require 'pg'
-require_relative './connection.rb'
+require_relative 'connection'
 
 class Listing
 
@@ -9,7 +9,7 @@ class Listing
     @listing_id = listing_id
     @name = name
     @description = description
-    @price = price
+    @price = price  
 
   end
 

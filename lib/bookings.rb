@@ -1,3 +1,7 @@
+require 'pg'
+require 'bcrypt'
+require_relative './connection.rb'
+
 class Booking
 
   attr_reader :booking_id, :confirmed, :start_date, :end_date, :listing_id, :user_id

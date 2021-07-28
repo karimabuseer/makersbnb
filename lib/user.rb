@@ -1,5 +1,5 @@
 require 'pg'
-# require 'bcrypt'
+require 'bcrypt'
 require_relative './connection'
 
 class User 

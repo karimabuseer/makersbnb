@@ -15,4 +15,9 @@ feature 'Viewing a listing page' do
     expect(page).to have_content 'really nice'
     expect(page).to have_content '10'
   end
+
+  scenario 'It allows you to select booking dates' do
+
+
+  end
 end

@@ -1,7 +1,15 @@
 Name: <%= @listing.name %> <br>
 Description: <%= @listing.description %> <br>
-Price: <%= @listing.price %>
+Price: <%= @listing.price %><br>
 
-<form action='/bookings/new' method='post'>
+
+<form action='/bookings/new/<%=@listing.listing_id%>' method='post'>
+<label for='start'>Start date:</label>
+  <input type='date' id='start' name='start_date'
+  value=<%=Time.now.strftime("%F")%> min=<%=Time.now.strftime("%F")%> max=<%=DateTime.now.next_year(1).to_time.strftime("%F")%> >
+
+  <label for='start'>End date:</label>
+  <input type='date' id='end' name='end_date'
+  value=<%=Time.now.strftime("%F")%> min=<%=Time.now.strftime("%F")%> max=<%=DateTime.now.next_year(1).to_time.strftime("%F")%> >
   <input type='submit' value='Request to book'>
 </form>

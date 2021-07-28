@@ -49,7 +49,7 @@ class MakersBnB < Sinatra::Base
   post '/log_in' do
     session[:user] = User.find(params[:email])
     flash[:notice] = "Welcome #{session[:user].name}!"
-    redirect '/'
+    redirect '/listings'
   end
 
   post '/log_out' do

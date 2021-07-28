@@ -1,0 +1,7 @@
+Name: <%= @listing.name %> <br>
+Description: <%= @listing.description %> <br>
+Price: <%= @listing.price %>
+
+<form action='/bookings/new' method='post'>
+  <input type='submit' value='Request to book'>
+</form>

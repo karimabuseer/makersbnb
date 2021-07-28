@@ -10,6 +10,9 @@ feature 'Viewing a listing page' do
     click_button('List my space')
     first('.listings').click_button 'View'
     listingid = Listing.all[0].listing_id
-    expect(current_path).to eq("listings/#{listingid}")
+    expect(current_path).to eq("/listings/#{listingid}")
+    expect(page).to have_content 'Castle'
+    expect(page).to have_content 'really nice'
+    expect(page).to have_content '10'
   end
 end

@@ -1,6 +1,6 @@
 feature 'Logging out' do
   scenario 'A user can log out' do
-    log_in
+    sign_up
     click_button('Log Out')
 
     expect(current_path).to eq('/')

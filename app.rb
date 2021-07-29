@@ -58,7 +58,11 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/log_in' do
-    session[:user] = User.find(params[:email])
+    unless session[:user] = User.authenticate(email: params[:email], password: params[:password])
+      flash[:notice] = 'Your email and password do not match'
+      redirect '/log_in'
+    end
+
     flash[:notice] = "Welcome #{session[:user].name}!"
     redirect '/listings'
   end

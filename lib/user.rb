@@ -21,7 +21,7 @@ class User
 
   def self.find(email)
     return nil unless email
-
+    
     result = database_connection.exec("SELECT * FROM users WHERE email = '#{email}';")
     User.new(user_id: result[0]['user_id'], name: result[0]['name'], email: result[0]['email'])
   end

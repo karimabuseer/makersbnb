@@ -12,3 +12,12 @@ def sign_up
   fill_in('password', with: 'password')
   click_button('Sign Up')
 end
+
+def create_listing
+  visit('/listings')
+  click_button('Add listing')
+  fill_in('name', with: 'Castle')
+  fill_in('description', with:'really nice')
+  fill_in('price', with: '10' )
+  click_button('List my space')
+end

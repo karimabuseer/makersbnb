@@ -33,6 +33,16 @@ class MakersBnB < Sinatra::Base
     redirect '/listings'
   end
 
+  get '/listings/:listing_id' do
+    @listing = Listing.find(listing_id: params[:listing_id])
+    erb(:'/listings/book')
+  end
+
+  post '/bookings/new/:listing_id' do
+    # Bookings.create(start: params[:start], end:params[:end], id: params[:id])
+    p params[:start_date], params[:end_date], params[:listing_id]
+  end
+
   get '/sign_up' do
     erb :"users/sign_up"
   end
@@ -40,7 +50,7 @@ class MakersBnB < Sinatra::Base
   post '/user' do
     session[:user] = User.create(name: params[:name], email: params[:email], password: params[:password])
     flash[:notice] = "Welcome #{session[:user].name}!"
-    redirect '/'
+    redirect '/listings'
   end
 
   get '/log_in' do
@@ -48,9 +58,9 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/log_in' do
-    session[:user] = User.find(email: params[:email])
+    session[:user] = User.find(params[:email])
     flash[:notice] = "Welcome #{session[:user].name}!"
-    redirect '/'
+    redirect '/listings'
   end
 
   post '/log_out' do

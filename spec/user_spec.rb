@@ -25,11 +25,33 @@ describe User do
   describe '.find' do
     it 'finds a user by email' do
       user = User.create(name: 'Test', email: 'test@example.co.uk', password: 'password')
-      result = User.find(email: 'test@example.co.uk')
+      result = User.find('test@example.co.uk')
 
       expect(result).to be_a(User)
       expect(result.user_id).to eq(user.user_id)
       expect(result.name).to eq(user.name)
+    end
+    it 'returns nil if there is no ID given' do
+      expect(User.find(nil)).to eq nil
+    end
+  end
+
+
+  describe '.authenticate' do
+    it 'returns a user given the right name and password' do
+      user = User.create(name: 'Test', email: 'test@example.com', password: 'password123')
+      auth_user = User.authenticate(email: 'test@example.com', password: 'password123')
+
+      expect(auth_user.user_id).to eq user.user_id
+    end
+    it 'returns nil if email doesnt exist' do
+      User.create(name: 'Test', email: 'test@example.com', password: 'password123')
+      expect(User.authenticate(email: 'wrongemail@email.com', password:'password')).to eq nil
+    end
+
+    it 'returns nil if password is wrong' do
+      User.create(name: 'Test', email: 'test@example.com', password: 'password123')
+      expect(User.authenticate(email: 'example@example.com', password:'wrongpassword')).to eq nil
     end
   end
 end

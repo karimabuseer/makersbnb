@@ -12,5 +12,8 @@
   <% @incoming_bookings.each do |booking| %>
     <li><%= booking.start_date%></li>
     <li><%= booking.end_date%></li>
+    <li><%= Listing.find_by_listing_id(listing_id: booking.listing_id).description%></li>
+    <li><%= Listing.find_by_listing_id(listing_id: booking.listing_id).name%></li>
   <%end%> 
 <%</ul> 
+

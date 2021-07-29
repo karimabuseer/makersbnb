@@ -10,7 +10,6 @@ feature 'Requesting a booking' do
     User.create(name: 'Guest', email: 'test@example.com', password: 'password')
     log_in
     book_first_listing
-    expect(page).to have_content('Castle')
     expect(page).to have_content('really nice')
     expect(page).to have_content('10')
     expect(page).to have_content('Not confirmed')

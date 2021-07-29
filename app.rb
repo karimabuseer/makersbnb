@@ -66,7 +66,7 @@ class MakersBnB < Sinatra::Base
   
   get '/bookings' do
       @outgoing_bookings = Booking.outgoing_bookings(user_id: session[:user].user_id)
-      # @incoming_bookings = Booking.incoming_bookings(user_id: session[:user].user_id)
+      @incoming_bookings = Booking.incoming_bookings(user_id: session[:user].user_id)
     erb :"/bookings/index"
   end
 

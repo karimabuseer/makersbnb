@@ -4,16 +4,18 @@ require 'listing'
 describe Booking do
 
   describe '.create' do
-    it 'should create a new booking' do  
-      listing = Listing.create( 
-        name: "sens hotel", 
-        description: "castle", 
-        price: "100")
-      
+    it 'should create a new booking' do 
+
       user = User.create(
         name: 'sen',
         email: 'banana@bread.com', 
         password: 'banana')
+
+      listing = Listing.create( 
+        name: "sens hotel", 
+        description: "castle", 
+        price: "100",
+        user_id: user.user_id)
 
       booking = Booking.create(
         start_date: '2021-10-10',
@@ -33,15 +35,18 @@ describe Booking do
 
   describe '.find_by_booking_id' do
     it 'should find a booking obj' do
-      listing = Listing.create( 
-        name: "sens hotel", 
-        description: "castle", 
-        price: "100")
       
       user = User.create(
         name: 'sen',
         email: 'banana@bread.com', 
         password: 'banana')
+
+      listing = Listing.create( 
+        name: "sens hotel", 
+        description: "castle", 
+        price: "100",
+        user_id: user.user_id
+      )
 
       booking = Booking.create(
         start_date: '2021-10-10',

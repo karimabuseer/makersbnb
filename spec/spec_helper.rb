@@ -5,6 +5,7 @@ require 'rspec'
 require 'capybara/rspec'
 require 'features/web_helpers'
 require 'pg'
+require 'model tests/helpers/new_user_helper'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 

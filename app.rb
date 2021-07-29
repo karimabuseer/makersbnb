@@ -6,6 +6,8 @@ require 'bcrypt'
 require './lib/user'
 require_relative './lib/listing'
 require_relative './lib/bookings'
+require_relative './lib/details'
+
 class MakersBnB < Sinatra::Base
 
   enable :sessions
@@ -48,6 +50,14 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/user' do
+    unless Details.authenticate_email(params[:email])
+      flash[:notice] = "Please enter a valid email"
+      redirect '/sign_up'
+    end
+    unless Details.authenticate_password(params[:password])
+      flash[:notice] = "Please enter a valid password"
+      redirect '/sign_up'
+    end
     session[:user] = User.create(name: params[:name], email: params[:email], password: params[:password])
     flash[:notice] = "Welcome #{session[:user].name}!"
     redirect '/listings'

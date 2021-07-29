@@ -8,3 +8,4 @@ describe '.database_connection' do
     expect(database[0]['name']).to eq 'James'
   end
 end
+

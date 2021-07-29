@@ -21,3 +21,10 @@ def create_listing
   fill_in('price', with: '10' )
   click_button('List my space')
 end
+
+def book_first_listing
+  first('.listings').click_button 'View'
+  fill_in('start', with: '2020-11-05')
+  fill_in('end', with: '2020-11-10')
+  click_button('Request to book')
+end

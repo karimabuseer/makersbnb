@@ -31,6 +31,36 @@ class Booking
     
     end
   end
+
+  def self.outgoing_bookings(user_id:)
+    bookings = database_connection.exec("SELECT * FROM bookings WHERE user_id=#{user_id};")
+    
+    bookings.map do |booking|
+      Booking.new(
+        booking_id: booking['booking_id'],
+        confirmed: booking['confirmed'],
+        start_date: booking['start_date'],
+        end_date: booking['end_date'],
+        listing_id: booking['listing_id'],
+        user_id: booking['user_id']
+        )
+      end
+    end
+
+    def self.incoming_bookings(user_id:)
+      bookings = database_connection.exec("SELECT * FROM bookings WHERE listing_id IN (SELECT listing_id FROM listings WHERE user_id=#{user_id});")
+      
+      bookings.map do |booking|
+        Booking.new(
+          booking_id: booking['booking_id'],
+          confirmed: booking['confirmed'],
+          start_date: booking['start_date'],
+          end_date: booking['end_date'],
+          listing_id: booking['listing_id'],
+          user_id: booking['user_id']
+          )
+      end
+    end
   
   def self.create(start_date:, end_date:, listing_id:, user_id:)
     booking = database_connection.exec("INSERT INTO bookings (start_date, end_date, listing_id, user_id) 

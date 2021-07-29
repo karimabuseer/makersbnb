@@ -48,7 +48,7 @@ class Booking
     end
 
     def self.incoming_bookings(user_id:)
-      bookings = database_connection.exec("SELECT * FROM bookings WHERE user_id=#{user_id};")
+      bookings = database_connection.exec("SELECT * FROM bookings WHERE listing_id IN (SELECT listing_id FROM listings WHERE user_id=#{user_id});")
       
       bookings.map do |booking|
         Booking.new(

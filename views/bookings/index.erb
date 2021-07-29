@@ -1,19 +1,24 @@
+Outgoing bookings:
 <ul>
   <% @outgoing_bookings.each do |booking| %>
     <li><%= booking.confirmed || 'Not confirmed' %></li>
     <li><%= booking.start_date %></li>
     <li><%= booking.end_date %></li>
+    <li><%= Listing.find_by_listing_id(listing_id: booking.listing_id).description%></li>
+    <li><%= Listing.find_by_listing_id(listing_id: booking.listing_id).name%></li>
+    <li><%= Listing.find_by_listing_id(listing_id: booking.listing_id).price%></li>
     <br>
   <% end%> 
 </ul>
 
-
+Incoming bookings:
 <ul>
   <% @incoming_bookings.each do |booking| %>
     <li><%= booking.start_date%></li>
     <li><%= booking.end_date%></li>
     <li><%= Listing.find_by_listing_id(listing_id: booking.listing_id).description%></li>
     <li><%= Listing.find_by_listing_id(listing_id: booking.listing_id).name%></li>
+    <li><%= Listing.find_by_listing_id(listing_id: booking.listing_id).price%></li>
   <%end%> 
 <%</ul> 
 

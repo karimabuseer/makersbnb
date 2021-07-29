@@ -1,18 +1,27 @@
 class Details
   def self.authenticate_password(password)
-    
     if !(password =~ /\d/)
-      return false
+      false
     elsif !(password =~ /[A-Z]/)
-      return false
+      false
     elsif !(password =~ /[a-z]/)
-      return false
-    elsif !(password.length >=8 && password.length <= 32)
-      return false
+      false
+    elsif !(password.length >= 8 && password.length <= 32)
+      false
     elsif !(password =~ /[!"%#$%&'()*+]/)
-      return false
+      false
     else
-      return true
+      true
     end
   end
+
+  def self.authenticate_email(email)
+
+    if !(email =~ /[.+@.+\..+]/)
+      false
+    else
+      true
+    end
+  end
+
 end

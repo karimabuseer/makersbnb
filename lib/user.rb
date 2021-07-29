@@ -2,6 +2,7 @@ require 'pg'
 require 'bcrypt'
 require_relative 'connection'
 
+
 class User 
 
   attr_reader :user_id, :name, :email

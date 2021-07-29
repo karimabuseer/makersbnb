@@ -31,15 +31,15 @@ describe Listing do
       expect(listing).to be_a Listing 
       expect(listing.name).to eq "pavs hotel"
       expect(listing.description).to eq "swamp"
-      expect(listing.price).to eq "10"
+      expect(listing.price).to eq 10
     end
   end
 
-  describe '.find' do
+  describe '.find_by_listing_id' do
     it 'should find the listing created' do
       listing = Listing.create(name: 'pavs hotel', description: 'swamp', price: 10)
 
-      result = Listing.find(listing_id: listing.listing_id)
+      result = Listing.find_by_listing_id(listing_id: listing.listing_id)
 
       expect(result).to be_a Listing
       expect(result.listing_id).to eq listing.listing_id

@@ -1,8 +1,19 @@
-nav {
-  display: flex;
-  justify-content: flex-end;
+* {
+  margin: 0;
 }
 
-title {
-  color: red;
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav_divs {
+  margin: 10px;
+  display: flex;
+  justify-content: flex-end; 
+}
+
+.nav_button {
+  margin-left: 10px;
+
 }

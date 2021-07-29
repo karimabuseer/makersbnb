@@ -6,24 +6,28 @@
     <title>MakersBnB</title>
   </head>
   <body>
-    <main>
-
-
     <nav>
-        <form action="/listings" method='get'>
+      <div class="nav_divs">
+        <form action="/" method='get'>
+          <input type="submit" value="MakersBnB">
+        </form>
+      </div>
+      <div class="nav_divs">
+        <form action="/listings" method='get' class="nav_button">
           <input type="submit" value="Listings">
         </form>
-      <% if session[:user] %>
-        <form action="/log_out" method='post'>
-          <input type="submit" value="Log Out">
-        </form>
-      <% else %>
-        <form action="/log_in" method='get'>
-          <input type="submit" value="Log In">
-        </form>
-      <%end%>
+        <% if session[:user] %>
+          <form action="/log_out" method='post' class="nav_button">
+            <input type="submit" value="Log Out">
+          </form>
+        <% else %>
+          <form action="/log_in" method='get' class="nav_button">
+            <input type="submit" value="Log In">
+          </form>
+        <%end%>
+      </div>
     </nav>
-
+    <main>
       <% if flash[:notice] %>
         <div class="flash">
           <%= flash[:notice] %>

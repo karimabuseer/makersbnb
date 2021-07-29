@@ -1,7 +1,7 @@
 require 'user'
 require 'pg'
 require 'bcrypt'
-require_relative './helpers/database_helpers'
+require_relative '../helpers/database_helpers'
 
 describe User do
   describe '.create' do

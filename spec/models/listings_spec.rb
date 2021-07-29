@@ -1,5 +1,5 @@
 require 'listing'
-require_relative './helpers/new_user_helper'
+require_relative '../helpers/new_user_helper'
 
 describe Listing do
 

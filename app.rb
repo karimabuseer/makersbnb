@@ -79,15 +79,29 @@ class MakersBnB < Sinatra::Base
   end
   
   get '/bookings' do
-      @outgoing_bookings = Booking.outgoing_bookings(user_id: session[:user].user_id)
-      @incoming_bookings = Booking.incoming_bookings(user_id: session[:user].user_id)
+    @user = User.find_by_user_id(session[:user_id]) if session[:user_id]
+    @outgoing_bookings = Booking.outgoing_bookings(user_id: session[:user].user_id)
+    @incoming_bookings = Booking.incoming_bookings(user_id: session[:user].user_id)
     erb :"/bookings/index"
+  end
+
+  get '/noodle' do
+    "I ACCEPT"
   end
 
   post '/bookings/new/:listing_id' do
     Booking.create(start_date: params[:start_date], end_date: params[:end_date], listing_id: params[:listing_id], user_id: session[:user].user_id)
     redirect '/bookings' 
   end
+
+  get '/bookings/:booking_id' do
+    @booking = Booking.find_by_booking_id(booking_id: params[:booking_id])
+    @listing = Listing.find_by_listing_id(listing_id: @booking.listing_id)
+    @incoming_bookings = Booking.incoming_bookings(user_id: session[:user].user_id)
+    @user = User.find_by_user_id(user_id: @booking.user_id)
+    erb :"/bookings/index"
+  end
+
 
   run! if app_file == $0
 end

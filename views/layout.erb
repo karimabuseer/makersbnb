@@ -13,6 +13,9 @@
         <form action="/listings" method='get'>
           <input type="submit" value="Listings">
         </form>
+        <form action="/bookings" method='get'>
+          <input type="submit" value="Bookings">
+        </form>
       <% if session[:user] %>
         <form action="/log_out" method='post'>
           <input type="submit" value="Log Out">

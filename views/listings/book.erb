@@ -1,6 +1,6 @@
 Name: <%= @listing.name %> <br>
 Description: <%= @listing.description %> <br>
-Price: <%= @listing.price %><br>
+Price: £<%= @listing.price %><br>
 
 
 <form action='/bookings/new/<%=@listing.listing_id%>' method='post'>

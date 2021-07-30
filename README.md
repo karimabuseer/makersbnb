@@ -8,6 +8,13 @@ This is a web app to list and book spaces.
 3. Create a production database and a test database (we recommend the names 'makersbnb' & 'makersbnb_test')
 4. Connect to each database and run the commands in db/migrations/ in order
 
+## Running the app
+1. Run:
+```
+rackup -p 3000
+```
+2. In your browser go to localhost:3000
+
 ## User stories
 
 ```
@@ -72,4 +79,22 @@ I want my space’s availability to change when a booking is confirmed
 ![Cards mapping MVP objects](https://github.com/karimabuseer/makersbnb/blob/main/docs/Screenshot%202021-07-26%20at%2015.04.58.png)
 
 ## Database Structure
-![Database Structure](https://github.com/karimabuseer/makersbnb/blob/main/docs/Screenshot%202021-07-26%20at%2015.29.33.png)
+(data is just an example)
+
+#### User table
+
+| user_id | name | email | password |
+| --- | --- | --- | --- |
+| 4 | Bob | bob@bob.com | Pa55word! |
+
+#### Listings
+
+| listing_id | name | description | price | user_id |
+| --- | --- | --- | --- | --- | --- |
+| 26 | Bob's Boudoir | Bold | 1000 | 4 |
+
+#### bookings
+
+| booking_id | confirmed | start_date | end_date | listing_id | user_id |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | false | 2021-08-02 | 2021-08-04 | 26 | 8 |

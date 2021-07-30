@@ -27,6 +27,11 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/listings/add' do
+    unless session[:user]
+      flash[:notice] = 'You must be logged in to do that.'
+      redirect '/log_in'
+    end
+    
     erb :'/listings/add'
   end
 

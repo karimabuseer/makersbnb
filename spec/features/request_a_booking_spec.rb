@@ -1,13 +1,13 @@
 feature 'Requesting a booking' do
   scenario 'it produces a request' do
-    User.create(name: 'Host', email: 'host@email.com', password: 'password')
+    User.create(name: 'Host', email: 'host@email.com', password: 'Password1!')
     visit('/log_in')
     fill_in('email', with: 'host@email.com')
-    fill_in('password', with: 'password')
+    fill_in('password', with: 'Password1!')
     click_button('Submit')
     create_listing
     click_button('Log Out')
-    User.create(name: 'Guest', email: 'test@example.com', password: 'password')
+    User.create(name: 'Guest', email: 'test@example.com', password: 'Password1!')
     log_in
     book_first_listing
     expect(page).to have_content('really nice')

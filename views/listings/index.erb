@@ -4,9 +4,9 @@
   <% @listings.each do |listing| %>
    
       <li class='listings' >
-        <%= listing.name %>
-        <%= listing.description %>
-        £<%= listing.price %>
+        <div><%= listing.name %><br>
+        <%= listing.description %><br>
+        £<%= listing.price %></div>
         <form action='listings/<%=listing.listing_id%>' method='get'>
         <input type='submit' value='View' class='button'/>
         </form>

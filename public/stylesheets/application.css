@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Source+Sans+Pro:wght@300;400&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald&family=Source+Sans+Pro:wght@300;400&display=swap");
 
 * {
   padding: 0;
@@ -22,23 +21,26 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Oswald', sans-serif;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Oswald", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-weight: 300;
+}
+
+ul {
+  list-style-type: none;
 }
 
 h1 {
   font-size: 100px;
   margin: 30px;
-  font-family: 'Oswald', sans-serif;
+  font-family: "Oswald", sans-serif;
 }
 
 .listings {
-  font-family: 'Oswald', sans-serif;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Oswald", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-weight: 400;
 }
-
 
 form {
   display: inline-block;
@@ -56,8 +58,8 @@ input {
 }
 
 .button {
-  font-family: 'Oswald', sans-serif;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Oswald", sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 .console {
@@ -72,10 +74,9 @@ input {
 .nav_divs {
   margin: 10px;
   display: flex;
-  justify-content: flex-end; 
+  justify-content: flex-end;
 }
 
 .nav_button {
   margin-left: 10px;
-
 }

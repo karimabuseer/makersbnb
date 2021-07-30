@@ -1,4 +1,5 @@
 require 'listing'
+require_relative '../helpers/new_user_helper'
 
 describe Listing do
 
@@ -7,9 +8,9 @@ describe Listing do
       
       connection = PG.connect(dbname: 'makersbnb_test')
 
-      listing = Listing.create(name: 'pavs hotel', description: 'swamp', price: 10)
+      listing = Listing.create(name: 'pavs hotel', description: 'swamp', price: 10, user_id: new_user.user_id)
 
-      Listing.create(name: 'sens hotel', description: 'castle', price: 100)
+      Listing.create(name: 'sens hotel', description: 'castle', price: 100, user_id: new_user.user_id)
 
       listings = Listing.all
 
@@ -25,7 +26,7 @@ describe Listing do
   describe '.create' do
     it 'should create a new listing' do
 
-    listing = Listing.create(name: 'pavs hotel', description: 'swamp', price: 10)
+    listing = Listing.create(name: 'pavs hotel', description: 'swamp', price: 10, user_id: new_user.user_id)
 
     expect(Listing.all.length).to eq 1
       expect(listing).to be_a Listing 
@@ -37,7 +38,7 @@ describe Listing do
 
   describe '.find_by_listing_id' do
     it 'should find the listing created' do
-      listing = Listing.create(name: 'pavs hotel', description: 'swamp', price: 10)
+      listing = Listing.create(name: 'pavs hotel', description: 'swamp', price: 10, user_id: new_user.user_id )
 
       result = Listing.find_by_listing_id(listing_id: listing.listing_id)
 

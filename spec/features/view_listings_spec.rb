@@ -1,7 +1,7 @@
 feature 'View listings' do
   scenario 'A user can see listings' do
-    Listing.create(name: 'pavs hotel', description: 'swamp', price: 10)
-    Listing.create(name: 'sens cesspit', description: 'super swampy', price: 5)
+    Listing.create(name: 'pavs hotel', description: 'swamp', price: 10, user_id: new_user.user_id)
+    Listing.create(name: 'sens cesspit', description: 'super swampy', price: 5, user_id: new_user.user_id)
 
     visit '/listings'
 

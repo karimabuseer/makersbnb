@@ -3,8 +3,9 @@ ENV['RACK_ENV'] = 'test'
 require 'capybara'
 require 'rspec'
 require 'capybara/rspec'
-require 'features/web_helpers'
+require 'helpers/web_helpers'
 require 'pg'
+require 'helpers/new_user_helper'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 

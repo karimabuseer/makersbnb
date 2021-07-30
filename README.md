@@ -83,18 +83,18 @@ I want my space’s availability to change when a booking is confirmed
 
 #### User table
 
-| user_id | name | email | password |
-| --- | --- | --- | --- |
-| 4 | Bob | bob@bob.com | Pa55word! |
+| user_id | name |    email    |  password |
+| ------- | ---- | ----------- | --------- |
+| 4       |  Bob | bob@bob.com | Pa55word! |
 
 #### Listings
 
-| listing_id | name | description | price | user_id |
-| --- | --- | --- | --- | --- | --- |
-| 26 | Bob's Boudoir | Bold | 1000 | 4 |
+| listing_id |      name     | description | price | user_id |
+| ---------- | ------------- | ----------- | ----- | ------- |
+|     26     | Bob's Boudoir |     Bold    |  1000 |    4    |
 
 #### bookings
 
-| booking_id | confirmed | start_date | end_date | listing_id | user_id |
-| --- | --- | --- | --- | --- | --- | --- |
-| 1 | false | 2021-08-02 | 2021-08-04 | 26 | 8 |
+| booking_id | confirmed | start_date |  end_date  | listing_id | user_id |
+| ---------- | --------- | ---------- | ---------- | ---------- | ------- |
+|      1     |   false   | 2021-08-02 | 2021-08-04 |     26     |    8    |

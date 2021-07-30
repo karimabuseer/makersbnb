@@ -1,4 +1,41 @@
+* {
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+}
+
 nav {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+}
+
+body {
+  background: linear-gradient(to right top, #a0ddeb, #a2c6ce);
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.console {
+  background: white;
+  width: 80%;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px;
+}
+
+.nav_divs {
+  margin: 10px;
+  display: flex;
+  justify-content: flex-end; 
+}
+
+.nav_button {
+  margin-left: 10px;
+
 }

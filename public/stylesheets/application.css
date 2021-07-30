@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Source+Sans+Pro:wght@300;400&display=swap');
+
+
 * {
   padding: 0;
   box-sizing: border-box;
@@ -18,16 +22,43 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Oswald', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
 }
+
+h1 {
+  font-size: 100px;
+  margin: 30px;
+  font-family: 'Oswald', sans-serif;
+}
+
+.listings {
+  font-family: 'Oswald', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+}
+
 
 form {
   display: inline-block;
+  margin: 10px;
 }
 
 input {
   display: block;
+  padding: 5px;
+  margin: 5px;
 }
 
+#sign_up {
+  margin-top: 10px;
+}
+
+.button {
+  font-family: 'Oswald', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
+}
 
 .console {
   background: white;

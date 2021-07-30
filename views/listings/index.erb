@@ -8,12 +8,12 @@
         <%= listing.description %>
         <%= listing.price %>
         <form action='listings/<%=listing.listing_id%>' method='get'>
-        <input type='submit' value='View'/>
+        <input type='submit' value='View' class='button'/>
         </form>
       </li>
   <% end %>
 </ul>
 
 <form action="/listings/add" method='get'>
-  <input type="submit" value="Add listing">
+  <input type="submit" value="Add listing" class='button'>
 </form>
